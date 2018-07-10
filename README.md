@@ -1,6 +1,6 @@
 # Mercator News
 ### Capstone Project at the Centre of Geographic Sciences - 2018
-####by Daniel Hiscock
+#### by Daniel Hiscock
 
 This application utilizes human event data pulled in real-time based on a user selected query. You have a few options available including news language selection and search by country to allow for an enriched experience. There are are also two ways to visualize the data. The main is using points classified based on the amount of mentions near a particular location. Darker and larger points indicate more mentions. 
 
