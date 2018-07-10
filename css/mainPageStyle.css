@@ -1,0 +1,141 @@
+
+/*  
+  Title: mainPageStyle.css
+  Purpose: apply styling for the title html page
+  Author: Daniel Hiscock
+  Date: May 2018
+  Disclaimer: Capstone Project for the completion of the Advanced Goegraphic Sciences Program at COGS 
+ */
+
+body {
+    background: linear-gradient(to bottom right, #deebf7, #6baed6);
+    font-family: 'Questrial';
+}
+
+/* Carousel Styling */
+
+.slide1 {
+    //background-image: url('../images/userInterface4.png');
+    height: 425px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.slide2 {
+    background-image: url('../images/userinterface2.png');
+    height: 425px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.slide3 {
+    background-image: url('../images/userinterface3.png');
+    height: 425px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.slide4 {
+    background-image: url('../images/GDELT.png');
+    height: 425px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.darken-s1 {
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url('../images/userInterface4.png');
+}
+
+.darken-s2 {
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url('../images/userinterface2.png');
+}
+
+.darken-s3 {
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url('../images/userinterface3.PNG');
+}
+
+.carousel-caption h1 {
+    font-size: 5em;
+    font-family: 'Raleway', bold;
+    color: #FFF;
+    width: auto;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    padding-bottom: .4em;
+}
+
+.carousel-caption p {
+    font-size: 2em;
+    font-family: 'Questrial', bold;
+    color: #FFF;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+
+.colImageSize {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.panel {
+    width: 100%;
+    margin: 5px;
+    font-size: 0.9em;
+    border-radius: 15px;
+    background-color: #eff3ff;
+    color: black;
+    border: 2px solid #DFDFDF;
+    box-shadow: 10px 10px 5px grey;
+}
+
+.icon-box {
+    align-content: center;
+    margin: 5px;
+    width: 160px;
+    height: 175px;
+}
+
+#gdeltFooter {
+	background: linear-gradient(to bottom left, #deebf7, #6baed6);
+	height: 150px;
+    padding: 10px;
+    color: black;
+} 
+
+#sm-box {
+    width: 370px;
+}
+
+.attrLogo {
+    padding: 25px 0;
+    overflow: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width:150px;
+    border-radius: 15%;
+}
+
+.row {
+    align-content: center;
+}

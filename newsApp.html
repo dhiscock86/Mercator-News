@@ -1,0 +1,232 @@
+﻿<!--
+  Title: NewsApp.html
+  Purpose: HTML containing all of the object and containers for the mapping application
+  Author: Daniel Hiscock
+  Date: May 2018
+  Reference: This page is based on Esri Calcite Bootstrap maps: https://github.com/Esri/calcite-maps
+  Disclaimer: Capstone Project for the completion of the Advanced Goegraphic Sciences Program at COGS
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="description" content="ArcGIS JS v4, Calcite Maps and Bootstrap Example">
+
+    <title>Capstone Project: News Application</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.23/esri/themes/calcite/dijit/calcite.css">
+    <!-- Calcite Maps Bootstrap -->
+    <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-bootstrap.min-v0.7.css">
+    <!-- Calcite Maps -->
+    <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.7.css">
+    <!-- ArcGIS JS 4 -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.7/esri/css/main.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="calcite-maps calcite-nav-top">
+    <!-- Navbar -->
+
+    <nav class="navbar calcite-navbar navbar-fixed-top calcite-text-light calcite-bg-dark">
+        <!-- Menu -->
+        <div class="dropdown calcite-dropdown calcite-text-dark calcite-bg-light" role="presentation">
+            <a class="dropdown-toggle" role="menubutton" aria-haspopup="true" aria-expanded="false" tabindex="0">
+                <div class="calcite-dropdown-toggle">
+                    <span class="sr-only">Toggle dropdown menu</span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a role="menuitem" tabindex="0" href="index.html" aria-haspopup="true"><span class="glyphicon glyphicon-home"></span>Back to Main Page</a></li>
+                <li><a role="menuitem" tabindex="0" data-target="#panelSettings" aria-haspopup="true"><span class="glyphicon glyphicon-dashboard"></span>Main Menu</a></li>
+                <li><a role="menuitem" tabindex="0" href="#" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span>Full Map</a></li>
+            </ul>
+        </div>
+        <!-- Title -->
+        <div class="calcite-title calcite-overflow-hidden">
+            <span class="calcite-title-main">Mercator News</span>
+            <span class="calcite-title-divider hidden-xs"></span>
+            <span class="calcite-title-sub hidden-xs">International Events in a Spatial Context</span>
+        </div>
+    </nav>
+
+    <!--/.calcite-navbar -->
+    <!-- Map  -->
+
+    <div class="calcite-map calcite-map-absolute">
+        <div id="tabContainer" class="tab-content">
+            <div id="mapTab" class="tab-pane fade in active" role="tabpanel">
+                <div id="mapViewDiv"></div>
+            </div>
+            <div id="sceneTab" class="tab-pane fade" role="tabpanel">
+                <div id="sceneViewDiv"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panels -->
+
+    <div id="tabPanel" class="calcite-panels calcite-panels-left calcite-text-light calcite-bg-dark panel-group" role="tablist" style="background-color: rgb(76, 76, 76);">
+
+        <!-- Panel - Settings -->
+
+        <div class="panel collapse in">
+
+            <div id="headingSettings" class="panel-heading">
+                <div class="panel-title">
+                    <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseSettings" aria-controls="collapseSettings"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><span class="panel-label">Main Menu</span></a>
+                </div>
+            </div>
+
+            <div id="collapseSettings" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSettings">
+                <div class="panel-body">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a name="search" href="#search" aria-controls="search" role="tab" data-toggle="tab">Search</a></li>
+                        <li role="presentation"><a name="options" href="#options" aria-controls="options" role="tab" data-toggle="tab">Options</a></li>
+                        <li role="presentation"><a name="legend" href="#legend" aria-controls="legend" role="tab" data-toggle="tab">Legend</a></li>
+                        <li role="presentation"><a name="about" href="#about" aria-controls="about" role="tab" data-toggle="tab">Info</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+
+                        <!-- Tab -Search -->
+
+                        <div role="tabpanel" class="tab-pane active" id="search">
+                            <div class="calcite-form-title">Enter a News Topic or Category</div>
+                            <div class="form-horizontal calcite-form-padding">
+                                <div class="form-group">
+                                    <label for="inputQuery" class="col-xs-3 control-label">Search:</label>
+                                    <div class="col-xs-9">
+                                        <input type="text" class="form-control" id="inputQuery" placeholder="eg) gas prices">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-9 col-xs-offset-3">
+                                        <button id="btnAdd" type="button" class="btn btn-primary btn-block">Apply</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-9 col-xs-offset-3">
+                                        <button id="btnClear" type="button" class="btn btn-primary btn-block">Clear</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab - Options -->
+
+                        <div role="tabpanel" class="tab-pane" id="options">
+                            <div class="calcite-form-title">Set the Language, Data Type and Country</div>
+                            <div class="form-horizontal calcite-form-padding">
+                                <div class="form-group">
+                                    <label for="langDropdown" class="col-xs-3 control-label">Language</label>
+                                    <div class="col-xs-9">
+                                        <select name="selectLang" id="langDropdown" class="form-control">
+                                            <option value="noneSelected" selected="selected">All Languages</option>
+                                            <option value="English">English</option>
+                                            <option value="French">French</option>
+                                            <option value="Spanish">Spanish</option>
+                                            <option value="German">German</option>
+                                            <option value="Portuguese">Portuguese</option>
+                                            <option value="Chinese">Chinese</option>
+                                            <option value="Japanese">Japanese</option>
+                                            <option value="Korean">Korean</option>
+                                            <option value="Russian">Russian</option>
+                                            <option value="Arabic">Arabic</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Not Working Yet. Meant to toggle between point / polygon modes -->
+                                <div class="form-group">
+                                    <label for="tglDisplayType" class="col-xs-3 control-label">Display</label>
+                                    <div class="col-xs-9">
+                                        <form id="tglDisplayType">
+                                            <label class="switch">
+                                                <input id="tglDataType" type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>  
+                                            <span id="dataMode"></span>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal calcite-form-padding">
+                                    <div class="form-group">
+                                        <label for="selectedCountry" class="col-xs-3 control-label">Country</label>
+                                        <div class="col-xs-8">
+                                            <input type="text" class="form-control" id="selectedCountry" placeholder="one word: eg) canada, unitedstates">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab - Legend -->
+
+                        <div role="tabpanel" id="legend" class="panel collapse">
+                            <div id="headingLegend" class="panel-heading" role="tab">
+                                <div class="panel-title">
+                                    <p><span class="glyphicon glyphicon-list" aria-hidden="true"></span><span class="panel-label">Legend</span></p>
+                                </div>
+                            </div>
+                            <div class="panel-body body-light">
+                                <div id="legendDiv"></div>
+                            </div>
+                        </div>
+
+                        <!-- Tab - Info -->
+
+                        <div role="tabpanel" class="tab-pane" id="about">
+                            <div class="panel-body">
+                                <p><span class="esri-icon esri-icon-map-pin pull-left"></span><span class="info-title">Mercator News Information & Attribution</span></p>
+                                <p>Use this real-time news service application to quickly interact with a topic of your choosing.</p>
+                                <p>Query news topics or headlines and interact with the presented news provided in a spatial Context</p>
+                                <p>The news data was provided by the GDELT API v2.0. The Global Database of Events, Language and Tone (GDELT) is the largest, most comprehensive, and highest resolution open database of human society ever created.</p>
+                                <p>Learn more about GDELT<a href="https://www.gdeltproject.org/"> here</a>.</p>
+                                <p>Disclaimer: This Capstone project was created for the completion of the Advanced Geographic Sciences Program at the Centre of Geographics Sciences</p>
+                                <p>Author: Daniel Hiscock</p>
+                                <p>Date: May 2018</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- /.calcite-panels -->
+
+    <script>
+		// dojo configuration allows you to set options and default behavior for various aspects of the toolkit. i.e. allow for calcite maps; WebGL
+        var dojoConfig = {
+            has: {
+                "esri-promise-compatibility-deprecation-warnings": 0, // remove the 'deprecated warnings in the console'
+                "esri-featurelayer-webgl": 1 // This is the requirement for WebGL. This will improve the application performance when ArcGIS Server 10.6.1 is released
+            },
+            packages: [{
+                name: "bootstrap",
+                location: "https://esri.github.io/calcite-maps/dist/vendor/dojo-bootstrap"
+            },
+            {
+                name: "calcite-maps",
+                location: "https://esri.github.io/calcite-maps/dist/js/dojo"
+            },
+            {
+                name: "calcite-settings",
+                location: "https://esri.github.io/calcite-maps/js"
+            }]
+
+        };
+    </script>
+    <!-- ArcGIS JS 4 -->
+    <script src="https://js.arcgis.com/4.7/"></script>
+    <!-- Main Require Script -->
+    <script src="js/requireMain.js"></script>
+</body>
+</html>

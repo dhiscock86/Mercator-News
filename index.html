@@ -1,0 +1,163 @@
+﻿
+<!--
+  Title: index.html
+  Purpose: Provide an interactive introduction for the news application 
+  Author: Daniel Hiscock
+  Date: May 2018
+  Disclaimer: Capstone Project for the completion of the Advanced Goegraphic Sciences Program at COGS
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+    <title>GDELT NEWS APP</title>
+    <link rel="stylesheet" href="css/mainPageStyle.css">
+
+</head>
+<body>
+    <!-- Carousel -->
+    <div id="theCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+
+        <!-- Each Slide added to the carousel slider -->
+        <ol class="carousel-indicators">
+            <li data-target="#theCarousel" data-slide-to="0" class="active"> </li>
+            <li data-target="#theCarousel" data-slide-to="1"> </li>
+            <li data-target="#theCarousel" data-slide-to="2"> </li>
+            <li data-target="#theCarousel" data-slide-to="3"> </li>
+        </ol>
+        <!-- Define the text to place over the image -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="slide1 darken-s1"></div>
+                <div class="carousel-caption">
+                    <h1>Mercator News</h1>
+                    <p>A real-time location based news application that utilizes Client-side graphics</p>
+                    <p><a href="NewsApp.html" class="btn btn-primary btn-lg">Get Started</a></p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="slide2 darken-s2"></div>
+                <div class="carousel-caption">
+                    <h1>Query News Topics</h1>
+                    <p>Utilizing the GDELT API, users can create a real-time map based on a topic of their choosing</p>
+					<p><a href="newsApp.html" class="btn btn-primary btn-lg">Load Application</a></p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="slide3 darken-s3"></div>
+                <div class="carousel-caption">
+                    <h1>Enhance Query with Options</h1>
+                    <p>Select options such as language or query within a specific country</p>
+                    <p>Utilize on of two data view modes: Point Density or Country Aggregated</p>
+					<p><a href="newsApp.html" class="btn btn-primary btn-lg">Load Application</a></p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="slide4"></div>
+                <div class="carousel-caption">
+                    <p>Powered by The Global Database of Events, Language and Tone (GDELT) API 2.0</p>
+					<p><a href="newsApp.html" class="btn btn-primary btn-lg">Load Application</a></p>
+                </div>
+            </div>
+        </div>        
+        <a class="left carousel-control" href="#theCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"> </span>
+        </a>
+        <a class="right carousel-control" href="#theCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+	
+    <div class="container">
+    <h5 class="text-uppercase col-lg-12">Hover over panels for more information</h5>
+        <div class="row">
+            <div id="sm-box" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-shadow panel-default">
+                    <div class="colImages1">
+                        <a href="#contentText1"></a>
+                        <img src="images/points.png" alt="pointImage" class="colImageSize" data-toggle="collapse" data-parent="#panel-814345"/>
+                    </div>
+                    <div id="contentText1" class="panel-collapse1 collapse">
+                        <div id="contentText1" class="panel-body">
+                            This application utilizes human event data pulled in real-time based on a user selected query.
+                            You have a few options available including news language selection and search by country to allow for
+                            an enriched experience. There are are also two ways to visualize the data. The main is using points
+                            classified based on the amount of mentions near a particular location. Darker and larger points indicate more mentions.
+                            The second method utilizes a polygon choropleth map with a similar premise.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sm-box" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-shadow panel-default">
+                    <div class="colImages2">
+                        <a href="#contentText2"></a>
+                        <img src="images/polygon.png" alt="polygonImage" class="colImageSize" data-toggle="collapse" data-parent="#panel-814345"/>
+                    </div>
+                    <div id="contentText2" class="panel-collapse2 collapse">
+                        <div id="contentText2" class="panel-body">
+                            The country aggregated method utilizes a polygon choropleth map similar to the point density map, however density is based on
+                            aggregation of points at the country level. Also unlike the point method, raw counts are not displayed due to the fact that some countries
+                            are mentioned in media more than others. To fix this the data are normalized by dividing the tallied mentions over 24 hours of the query
+                            within a country by the number of times that country or locations within that country were mentioned resulting in a percentage.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix visible-sm"></div>
+
+            <div id="sm-box" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-shadow panel-default">
+                    <div class="colImages3">
+                        <a href="#contentText3"></a>
+                        <img src="images/smallGDELT.png" alt="gdeltImage" class="colImageSize" data-toggle="collapse" data-parent="#panel-814345"/>
+                    </div>
+                    <div id="contentText3" class="panel-collapse3 collapse">
+                        <div id="contentText3" class="panel-body">
+                            Powering this project is the ArcGIS API for JavaScript version 4.7. Real-time news data (within 24 hours old) is provided by the GDELT
+                            API 2.0. To learn more about gdelt, click <a href="https://www.gdeltproject.org/">here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <footer id="gdeltFooter" class="page-footer font-small blue pt-4 mt-4">
+        <div class="container-fluid text-left text-md-left">
+            <div class="col-md-6">
+                <h5 class="text-uppercase">About</h5>
+                <p>
+                    Author: Daniel Hiscock<br>
+                    Disclaimer: This Capstone project was completed to comply with term requirements of the Advanced Geographics Sciences Diploma - GIS Concentration.
+                    SourcesSources: GDELT API version 2.0; ArcGIS API for Javascript 4.7<br>
+                    Project Supervisor: Kathleen Stewert
+                </p>
+            </div>
+            <div class="col-md-6">
+                <div class="icon-box col-md-4">
+                    <img src="images/gdeltlogo.png" alt="gdelt logo" class="attrLogo" />
+                </div>
+                <div class="icon-box col-md-4">
+                    <img src="images/esri.png" alt="esri logo" class="attrLogo" />
+                </div>
+                <div class="icon-box col-md-4">
+                    <img src="images/cogs.png" alt="cogs logo" class="attrLogo" />
+                </div>
+            </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/titlePageControls.js" data-type="text"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
